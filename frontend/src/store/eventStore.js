@@ -1,8 +1,8 @@
 import {configureStore} from "@reduxjs/toolkit";
-import eventReducer from "./reducers/eventReducer.js";
+import eventSlice from "./reducers/eventSlice.js";
 
 export default configureStore({
     reducer: {
-        events: eventReducer,
+        calendarEvents: eventSlice,
     }
 })

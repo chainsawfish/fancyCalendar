@@ -1,5 +1,5 @@
 export const eventsArray = [
-    { title: 'Meeting with client', date: new Date(2023, 3, 2), text: 'Discuss project scope and requirements' },
-    { title: 'Team lunch', date: new Date(2023, 3, 6), text: 'Celebrate successful project delivery' },
-    { title: 'Presentation', date: new Date(2023, 3, 12), text: 'Present quarterly performance to stakeholders' }
+    { id: 1, title: 'Meeting', date: new Date(2023, 3, 26), text: 'First asdf' },
+    { id: 2, title: 'Lunch', date: new Date(2023, 3, 26), text: 'Ndsfasdf' },
+    { id: 3, title: 'Sport', date: new Date(2023, 3, 25), text: 'asdfsdf' }
 ]

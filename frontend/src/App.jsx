@@ -13,7 +13,7 @@ function App() {
     return (
         <div className="flex flex-row justify-center gap-8 mt-10">
             <Calendar onChange={setDate} value={date} onClickDay={handleDayClick}/>
-            <EventsList currentDay={currentDay}/>
+            {currentDay && <EventsList currentDay={date}/>}
         </div>
     )
 }

@@ -2,7 +2,6 @@ import React from 'react';
 import Event from "./Event.jsx";
 import {useSelector} from "react-redux";
 
-
 const EventsList = ({currentDay}) => {
     const events = useSelector(state => state.calendarEvents.events)
     return (
@@ -14,7 +13,6 @@ const EventsList = ({currentDay}) => {
                         <Event key={index} today={eventObj}/>
                     )
                 })}
-
         </div>
     );
 };

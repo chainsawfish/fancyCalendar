@@ -20,7 +20,7 @@ function App() {
     const hasEvents = ({date}) => {
         const validArray = events.filter(obj => {
             if (obj.date === date.toLocaleDateString()) {
-                console.log(obj.date, '===' ,date.toLocaleDateString())
+                console.log(obj.date, '===', date.toLocaleDateString())
                 return 1
             }
 
@@ -37,12 +37,12 @@ function App() {
             </div>
             <div className="flex flex-col items-center">
                 <div onClick={handleEdit}
-                     className='w-[300px] border-2 cursor-pointer mt-12 p-2 rounded-3xl text-center text-xl'>
+                     className='btn w-[300px] border-2 cursor-pointer mt-12 p-2 rounded-3xl text-center text-xl'>
                     Добавить событие
                 </div>
-                {showEdit && currentDay && <div className="w-[300px] border-2  mt-12 p-2  text-center">
+                {showEdit && currentDay &&
                     <EditForm currentDay={currentDay}/>
-                </div>}
+                }
             </div>
         </>
     )

@@ -57,9 +57,9 @@ const EditForm = ({currentDay}) => {
     };
 
     return (
-        <form className="flex flex-col justify-start items-start p-2">
+        <form className="flex flex-col justify-center items-center p-8 rounded-xl mt-4 gap-2 border-2">
             <div>
-                <input className="border-2"
+                <input className='input input-bordered w-full max-w-xs'
                        placeholder="Название события"
                        type="text"
                        id="event-name"
@@ -69,7 +69,7 @@ const EditForm = ({currentDay}) => {
                 />
             </div>
             <div>
-                <select id="event-type" name="eventType" value={event.eventType} onChange={handleInputChange}>
+                <select className='select w-full max-w-xs' id="event-type" name="eventType" value={event.eventType} onChange={handleInputChange}>
                     <option value="">Тип события</option>
                     <option value="Holiday">Праздничные дни</option>
                     <option value="Event">Мероприятия</option>
@@ -77,7 +77,7 @@ const EditForm = ({currentDay}) => {
                 </select>
             </div>
             <div>
-                <input
+                <input className='input input-bordered w-full max-w-xs'
                     type="text"
                     placeholder="Место проведения"
                     id="destination"
@@ -87,7 +87,7 @@ const EditForm = ({currentDay}) => {
                 />
             </div>
             <div>
-                <input
+                <input className='input input-bordered w-full max-w-xs'
                     type="text"
                     placeholder="Время"
                     id="event-time"
@@ -97,9 +97,9 @@ const EditForm = ({currentDay}) => {
                 />
             </div>
             {event.errorMessage && <div className="text-red-600 text-sm">{event.errorMessage}</div>}
-            <div>
-                <button onClick={handleSaveClick}>Сохранить</button>
-                <button onClick={handleCancelClick}>Отмена</button>
+            <div className='flex gap-4 m-auto'>
+                <button className="btn btn-success " onClick={handleSaveClick}>Сохранить</button>
+                <button className="btn btn-error" onClick={handleCancelClick}>Отмена</button>
             </div>
         </form>
     );

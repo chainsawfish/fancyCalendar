@@ -1,89 +1,102 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
+import {useDispatch, useSelector} from "react-redux";
+import {addEvent} from "../store/reducers/eventSlice.js";
+const EditForm = ({currentDay}) => {
+    const events = useSelector((state) => state.calendarEvents.events)
+    const dispatch = useDispatch()
+    const [event, setEvent] = useState({
+        id:  events.length ? events.length+1 : 1 ,
+        eventName: '',
+        eventType: '',
+        date: currentDay.toLocaleDateString(),
+        destination: '',
+        eventTime: '',
+        errorMessage: ''
+    });
 
-const EditForm = () => {
-    const [eventName, setEventName] = useState('');
-    const [eventType, setEventType] = useState('');
-    const [destination, setDestination] = useState('');
-    const [eventTime, setEventTime] = useState('');
-    const [errorMessage, setErrorMessage] = useState('');
+    useEffect(() => {
+        setEvent(() => ({ ...event, date: currentDay.toLocaleDateString() }));
 
-    const handleEventNameChange = (event) => {
-        setEventName(event.target.value);
+    }, [currentDay]);
+
+    const handleInputChange = (e) => {
+        e.preventDefault()
+        const {name, value} = e.target;
+        setEvent(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
     };
 
-    const handleEventTypeChange = (event) => {
-        setEventType(event.target.value);
+    const handleSaveClick = (e) => {
+        e.preventDefault()
+        dispatch(addEvent(event))
+        setEvent({
+            id: events.length+1,
+            eventName: '',
+            eventType: '',
+            date: currentDay.toLocaleDateString(),
+            destination: '',
+            eventTime: '',
+            errorMessage: ''
+        });
+
     };
 
-    const handleDestinationChange = (event) => {
-        setDestination(event.target.value);
-    };
-
-    const handleEventTimeChange = (event) => {
-        setEventTime(event.target.value);
-    };
-
-    const handleSaveClick = (event) => {
-        event.preventDefault();
-        if (eventName.length < 4) {
-            setErrorMessage('Значение должно быть более 4 строк');
-        } else {
-            // Save event data here
-            setErrorMessage('');
-            setEventName('');
-            setEventType('');
-            setDestination('');
-            setEventTime('');
-        }
-    };
-
-    const handleCancelClick = (event) => {
-        event.preventDefault();
-        setErrorMessage('');
-        setEventName('');
-        setEventType('');
-        setDestination('');
-        setEventTime('');
+    const handleCancelClick = (e) => {
+        e.preventDefault()
+        setEvent({
+            id: events.length+1,
+            eventName: '',
+            eventType: '',
+            date: currentDay.toLocaleDateString(),
+            destination: '',
+            eventTime: '',
+            errorMessage: ''
+        });
     };
 
     return (
         <form className="flex flex-col justify-start items-start p-2">
             <div>
-                <label htmlFor="event-name">Название события:</label>
                 <input className="border-2"
+                       placeholder="Название события"
                        type="text"
                        id="event-name"
-                       value={eventName}
-                       onChange={handleEventNameChange}
+                       name="eventName"
+                       value={event.eventName}
+                       onChange={handleInputChange}
                 />
             </div>
             <div>
-                <select id="event-type" value={eventType} onChange={handleEventTypeChange}>
+                <select id="event-type" name="eventType" value={event.eventType} onChange={handleInputChange}>
                     <option value="">Тип события</option>
-                    <option value="Fun">Отдых</option>
-                    <option value="Work">Работа</option>
-                    <option value="Sport">Спорт</option>
+                    <option value="Holiday">Праздничные дни</option>
+                    <option value="Event">Мероприятия</option>
+                    <option value="Other">Пометки / Другое</option>
                 </select>
             </div>
             <div>
-                <label htmlFor="destination">Место:</label>
                 <input
                     type="text"
+                    placeholder="Место проведения"
                     id="destination"
-                    value={destination}
-                    onChange={handleDestinationChange}
+                    name="destination"
+                    value={event.destination}
+                    onChange={handleInputChange}
                 />
             </div>
             <div>
-                <label htmlFor="event-time">Время:</label>
                 <input
                     type="text"
+                    placeholder="Время"
                     id="event-time"
-                    value={eventTime}
-                    onChange={handleEventTimeChange}
+                    name="eventTime"
+                    value={event.eventTime}
+                    onChange={handleInputChange}
                 />
             </div>
-            {errorMessage && <div className="error">{errorMessage}</div>}
+            {event.errorMessage && <div className="text-red-600 text-sm">{event.errorMessage}</div>}
             <div>
                 <button onClick={handleSaveClick}>Сохранить</button>
                 <button onClick={handleCancelClick}>Отмена</button>

@@ -28,8 +28,8 @@ function App() {
                      className='w-[300px] border-2 cursor-pointer mt-12 p-2 rounded-3xl text-center text-xl'>
                     Добавить событие
                 </div>
-                {showEdit && <div className="w-[300px] border-2  mt-12 p-2  text-center">
-                    <EditForm/>
+                {showEdit && currentDay && <div className="w-[300px] border-2  mt-12 p-2  text-center">
+                    <EditForm currentDay={currentDay}/>
                 </div>}
             </div>
         </>

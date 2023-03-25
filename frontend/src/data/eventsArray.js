@@ -1,5 +1,5 @@
 export const eventsArray = [
-    { id: 1, title: 'Meeting', eventType: 1, date: new Date(2023, 3, 26), place: 'First asdf', time: "22-00" },
-    { id: 2, title: 'Lunch', eventType: 1, date: new Date(2023, 3, 26), place: 'Ndsfasdf' , time: "22-00"},
-    { id: 3, title: 'Sport', eventType: 1, date: new Date(2023, 3, 25), place: 'asdfsdf', time: "22-00" }
+     //{ id: 1, eventName: 'Meeting', eventType: "Event", date: new Date(2023, 3, 26).toLocaleDateString(), destination: 'Lenina st.1', time: "22-00", money: null },
+    // { id: 2, eventName: 'Lunch', eventType: 'Holiday', date: new Date(2023, 3, 26), destination: 'Lenina st.2' , time: "22-00", money: 2000},
+    // { id: 3, eventName: 'Sport', eventType: 'Other', date: new Date(2023, 3, 25), destination: 'Lenina st.3', time: "22-00", money: null }
 ]

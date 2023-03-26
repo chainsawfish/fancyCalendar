@@ -26,7 +26,7 @@ function App() {
             }
 
         })
-        return validArray.length ? <p className="text-3xl text-green-600 relative top-[-10px]">*</p> : null
+        return validArray.length ? <p className="text-xl text-green-600 relative top-[-10px]">*</p> : null
     }
 
     return (
@@ -34,7 +34,7 @@ function App() {
             <Logo />
             <div className="flex flex-row justify-center gap-8 mt-10 ml-10 ">
                 <div>
-                <Calendar onChange={setDate} value={date} onClickDay={handleDayClick} tileContent={hasEvents}/>
+                <Calendar className='shadow-md' onChange={setDate} value={date} onClickDay={handleDayClick} tileContent={hasEvents}/>
                     <div className="flex flex-col items-center justify-center">
                         <div onClick={handleEdit}
                              className='btn w-[350px] mt-2 text-md'>

@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {addEvent} from "../store/reducers/eventSlice.js";
 const EditForm = ({currentDay}) => {
+    const [editEvent, setEditEvent] = useState(null)
     const events = useSelector((state) => state.calendarEvents.events)
     const dispatch = useDispatch()
     const uniqueId = Date.now().toString(36);
@@ -58,7 +59,7 @@ const EditForm = ({currentDay}) => {
     };
 
     return (
-        <form className="flex flex-col justify-center items-center p-2 rounded-xl mt-2 gap-2 border-2 w-[350px] h-[320px]">
+        <form className="flex flex-col justify-center items-center p-2 rounded-xl mt-2 gap-2 border-2 border-dashed shadow-md border-gray-500 w-[350px] h-[320px]">
             <div>
                 <select className='select w-full max-w-xs' id="event-type" name="eventType" value={event.eventType} onChange={handleInputChange}>
                     <option value="">Тип события</option>
@@ -99,7 +100,7 @@ const EditForm = ({currentDay}) => {
             </div>
             {event.errorMessage && <div className="text-red-600 text-sm">{event.errorMessage}</div>}
             <div className='flex gap-4 m-auto'>
-                <button className="btn btn-success " onClick={handleSaveClick}>Сохранить</button>
+                <button className="btn btn-success" onClick={handleSaveClick}>Сохранить</button>
                 <button className="btn btn-error" onClick={handleCancelClick}>Отмена</button>
             </div>
         </form>

@@ -10,7 +10,7 @@ const EventsList = ({currentDay}) => {
     },[events])
     return (
         <div className='min-w-[300px]'>
-            <h1 className="text-center text-xl">Список дел на сегодня, {currentDay.toLocaleString('ru-RU', { day:'numeric', month: 'long', year:'numeric'})}</h1>
+            <h1 className="text-center text-xl">Список дел на {currentDay.toLocaleString('ru-RU', { day:'numeric', month: 'long', year:'numeric'})}</h1>
             {events.filter(eventObj => eventObj.date === currentDay.toLocaleDateString())
                 .map((eventObj, index) => {
                     return (

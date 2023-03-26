@@ -18,15 +18,19 @@ const Event = ({today}) => {
         dispatch(removeEvent(today?.id))
     }
 
+    const handleEditEvent = () => {
+
+    }
+
     return (
-        <div onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave} className="border-2 pt-2 mt-2 w-[380px] ">
+        <div onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave} className="border-2 rounded-md shadow-md border-gray-400 p-2 mt-2 w-[380px] ">
             <div className="flex flex-row justify-between items-baseline">
                 <div className="text-xl text-sky-600 underline w-[300px] pl-4 text-center">{today?.eventName}</div>
                 <div className="">
                     {isHidden &&
                         <div className="flex flex-row items-end gap-2 ">
-                            <AiFillDelete onClick={handleDeleteEvent} className='w-6 h-6'/>
-                            <AiFillEdit className='w-6 h-6'/>
+                            <AiFillDelete onClick={handleDeleteEvent} className='w-6 h-6 cursor-pointer'/>
+                            <AiFillEdit onClick={handleEditEvent} className='w-6 h-6 cursor-pointer'/>
                         </div>}
                 </div>
             </div>

@@ -1,5 +1,5 @@
-import {useEffect, useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
+import {useState} from "react";
+import {useSelector} from "react-redux";
 import Calendar from "react-calendar";
 import EventsList from "./components/EventsList.jsx";
 import EditForm from "./components/EditForm.jsx";
@@ -31,21 +31,22 @@ function App() {
 
     return (
         <>
-            <Logo />
+            <Logo/>
             <div className="flex flex-row justify-center gap-8 mt-10 ml-10 ">
                 <div>
-                <Calendar className='shadow-md' onChange={setDate} value={date} onClickDay={handleDayClick} tileContent={hasEvents}/>
+                    <Calendar className='shadow-md' onChange={setDate} value={date} onClickDay={handleDayClick}
+                              tileContent={hasEvents}/>
                     <div className="flex flex-col items-center justify-center">
                         <div onClick={handleEdit}
                              className='btn w-[350px] mt-2 text-md'>
                             Добавить событие
                         </div>
                         {showEdit && currentDay &&
-                            <EditForm currentDay={currentDay} />
+                            <EditForm currentDay={currentDay}/>
                         }
                     </div>
                 </div>
-                {currentDay && <EventsList currentDay={date} />}
+                {currentDay && <EventsList currentDay={date}/>}
             </div>
 
         </>

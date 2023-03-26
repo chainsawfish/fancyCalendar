@@ -1,8 +1,8 @@
 # Fancy Calendar App
 
 > How to run this app follow commmands:
-> `cd frontend`
-> `npm run dev`
+- `cd frontend`
+- `npm run dev`
 
 ## Calendar app for adding/editing/removing your events.
 - All events saves in localStorage when you close browser or refresh page.

@@ -57,7 +57,15 @@ const EditForm = ({currentDay}) => {
     };
 
     return (
-        <form className="flex flex-col justify-center items-center p-8 rounded-xl mt-4 gap-2 border-2">
+        <form className="flex flex-col justify-center items-center p-2 rounded-xl mt-2 gap-2 border-2 w-[350px] h-[320px]">
+            <div>
+                <select className='select w-full max-w-xs' id="event-type" name="eventType" value={event.eventType} onChange={handleInputChange}>
+                    <option value="">Тип события</option>
+                    <option value="Holiday">Праздничные дни</option>
+                    <option value="Event">Мероприятия</option>
+                    <option value="Other">Пометки / Другое</option>
+                </select>
+            </div>
             <div>
                 <input className='input input-bordered w-full max-w-xs'
                        placeholder="Название события"
@@ -67,14 +75,6 @@ const EditForm = ({currentDay}) => {
                        value={event.eventName}
                        onChange={handleInputChange}
                 />
-            </div>
-            <div>
-                <select className='select w-full max-w-xs' id="event-type" name="eventType" value={event.eventType} onChange={handleInputChange}>
-                    <option value="">Тип события</option>
-                    <option value="Holiday">Праздничные дни</option>
-                    <option value="Event">Мероприятия</option>
-                    <option value="Other">Пометки / Другое</option>
-                </select>
             </div>
             <div>
                 <input className='input input-bordered w-full max-w-xs'

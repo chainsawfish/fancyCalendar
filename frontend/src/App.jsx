@@ -3,6 +3,7 @@ import Calendar from "react-calendar";
 import EventsList from "./components/EventsList.jsx";
 import EditForm from "./components/EditForm.jsx";
 import {useSelector} from "react-redux";
+import Logo from "./components/Logo.jsx";
 
 function App() {
     const [date, setDate] = useState(new Date())
@@ -30,19 +31,23 @@ function App() {
 
     return (
         <>
-            <div className="flex flex-row justify-center gap-8 mt-10">
+            <Logo />
+            <div className="flex flex-row gap-8 mt-10 ml-10">
+                <div>
                 <Calendar onChange={setDate} value={date} onClickDay={handleDayClick} tileContent={hasEvents}/>
-                {currentDay && <EventsList currentDay={date}/>}
-            </div>
-            <div className="flex flex-col items-center">
-                <div onClick={handleEdit}
-                     className='btn w-[300px] border-2 cursor-pointer mt-12 p-2 rounded-3xl text-center text-xl'>
-                    Добавить событие
+                    <div className="flex flex-col items-center justify-center">
+                        <div onClick={handleEdit}
+                             className='btn w-[350px] mt-2 text-md'>
+                            Добавить событие
+                        </div>
+                        {showEdit && currentDay &&
+                            <EditForm currentDay={currentDay}/>
+                        }
+                    </div>
                 </div>
-                {showEdit && currentDay &&
-                    <EditForm currentDay={currentDay}/>
-                }
+                {currentDay && <EventsList currentDay={date} />}
             </div>
+
         </>
     )
 }

@@ -4,7 +4,7 @@ import {addEvent, setEditEvent} from "../store/slices/eventSlice.js";
 
 const EditForm = ({currentDay}) => {
     // TODO: error handling for fields
-    //const [error, setIsError] = useState(null)
+    const [error, setIsError] = useState(null)
     const dispatch = useDispatch()
     const editEvent = useSelector((state) => state.calendarEvents.editEvent)
     const uniqueId = Date.now().toString(36);

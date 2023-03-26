@@ -4,8 +4,9 @@ import {addEvent} from "../store/reducers/eventSlice.js";
 const EditForm = ({currentDay}) => {
     const events = useSelector((state) => state.calendarEvents.events)
     const dispatch = useDispatch()
+    const uniqueId = Date.now().toString(36);
     const [event, setEvent] = useState({
-        id:  events.length ? events.length+1 : 1 ,
+        id:  uniqueId,
         eventName: '',
         eventType: '',
         date: currentDay.toLocaleDateString(),
@@ -32,7 +33,7 @@ const EditForm = ({currentDay}) => {
         e.preventDefault()
         dispatch(addEvent(event))
         setEvent({
-            id: events.length+1,
+            id:  uniqueId,
             eventName: '',
             eventType: '',
             date: currentDay.toLocaleDateString(),
@@ -46,7 +47,7 @@ const EditForm = ({currentDay}) => {
     const handleCancelClick = (e) => {
         e.preventDefault()
         setEvent({
-            id: events.length+1,
+            id: uniqueId,
             eventName: '',
             eventType: '',
             date: currentDay.toLocaleDateString(),

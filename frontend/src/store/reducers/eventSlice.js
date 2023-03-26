@@ -1,7 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 const jsonArr = localStorage.getItem("fancyCalendar");
 
-const savedState = jsonArr !== null ? JSON.parse(localStorage.getItem("fancyCalendar")) : []
+const savedState = jsonArr !== null ? JSON.parse(jsonArr) : []
 
 const initialState = {
     events: [...savedState]
@@ -17,6 +17,8 @@ export const eventSlice = createSlice( {
         },
         removeEvent: (state,action) => {
             state.events = state.events.filter(event => event.id !== action.payload)
+            localStorage.setItem("fancyCalendar", JSON.stringify(state.events))
+
         }
     }
 })

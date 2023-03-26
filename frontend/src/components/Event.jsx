@@ -19,10 +19,10 @@ const Event = ({today}) => {
     }
 
     return (
-        <div onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave} className="border-2 pt-2 mt-2 w-[340px] ">
-            <div className="flex flex-row justify-center items-center">
-                <div className="text-xl text-sky-600 underline w-[250px]">{today?.eventName}</div>
-                <div className="w-[50px] ">
+        <div onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave} className="border-2 pt-2 mt-2 w-[380px] ">
+            <div className="flex flex-row justify-between items-baseline">
+                <div className="text-xl text-sky-600 underline w-[300px] pl-4 text-center">{today?.eventName}</div>
+                <div className="">
                     {isHidden &&
                         <div className="flex flex-row items-end gap-2 ">
                             <AiFillDelete onClick={handleDeleteEvent} className='w-6 h-6'/>

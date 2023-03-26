@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import {AiFillDelete, AiFillEdit} from 'react-icons/ai'
 import {useDispatch} from "react-redux";
+import {AiFillDelete, AiFillEdit} from 'react-icons/ai'
 import {removeEvent, setEditEvent, setEditId} from "../store/reducers/eventSlice.js";
 
 const Event = ({today}) => {

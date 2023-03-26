@@ -1,8 +1,8 @@
 import {useEffect, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
 import Calendar from "react-calendar";
 import EventsList from "./components/EventsList.jsx";
 import EditForm from "./components/EditForm.jsx";
-import {useDispatch, useSelector} from "react-redux";
 import Logo from "./components/Logo.jsx";
 
 function App() {

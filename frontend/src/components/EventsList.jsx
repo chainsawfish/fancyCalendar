@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
-import Event from "./Event.jsx";
 import {useSelector} from "react-redux";
+import Event from "./Event.jsx";
 
 const EventsList = ({currentDay}) => {
 

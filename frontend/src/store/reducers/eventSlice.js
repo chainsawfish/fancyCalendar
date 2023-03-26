@@ -1,6 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
 const jsonArr = localStorage.getItem("fancyCalendar");
-
 const savedState = jsonArr !== null ? JSON.parse(jsonArr) : []
 
 const initialState = {

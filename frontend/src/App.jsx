@@ -1,8 +1,8 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Calendar from "react-calendar";
 import EventsList from "./components/EventsList.jsx";
 import EditForm from "./components/EditForm.jsx";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import Logo from "./components/Logo.jsx";
 
 function App() {
@@ -41,7 +41,7 @@ function App() {
                             Добавить событие
                         </div>
                         {showEdit && currentDay &&
-                            <EditForm currentDay={currentDay}/>
+                            <EditForm currentDay={currentDay} />
                         }
                     </div>
                 </div>

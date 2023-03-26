@@ -10,5 +10,5 @@
 
 ---
 
-![image](https://user-images.githubusercontent.com/7777307/227789595-f6a27e0e-7142-4e8f-b54f-7752b694167d.png)
+![image](https://user-images.githubusercontent.com/7777307/227789830-344a294d-2be6-47e7-be01-340da07fca4d.png)
 

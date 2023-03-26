@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 import {AiFillDelete, AiFillEdit} from 'react-icons/ai'
+import {useDispatch} from "react-redux";
+import {removeEvent} from "../store/reducers/eventSlice.js";
 
 const Event = ({today}) => {
     const [isHidden, setIsHidden] = useState(false)
-
+    const dispatch = useDispatch()
     const handleMouseOver = () => {
         setIsHidden(true)
     }
@@ -12,15 +14,19 @@ const Event = ({today}) => {
         setIsHidden(false)
     }
 
+    const handleDeleteEvent = () => {
+        dispatch(removeEvent(today?.id))
+    }
+
     return (
         <div onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave} className="border-2 pt-2 mt-2 w-[340px] ">
             <div className="flex flex-row justify-center items-center">
-                <div className="text-xl text-sky-600 underline">{today?.eventName}</div>
+                <div className="text-xl text-sky-600 underline w-[250px]">{today?.eventName}</div>
                 <div className="w-[50px] ">
                     {isHidden &&
-                        <div className="flex flex-row items-end pl-16 gap-2">
-                            <div><AiFillDelete/></div>
-                            <div><AiFillEdit/></div>
+                        <div className="flex flex-row items-end gap-2 ">
+                            <AiFillDelete onClick={handleDeleteEvent} className='w-6 h-6'/>
+                            <AiFillEdit className='w-6 h-6'/>
                         </div>}
                 </div>
             </div>

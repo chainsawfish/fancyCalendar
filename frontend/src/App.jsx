@@ -6,9 +6,10 @@ import {useSelector} from "react-redux";
 
 function App() {
     const [date, setDate] = useState(new Date())
-    const [currentDay, setCurrentDay] = useState(null)
+    const [currentDay, setCurrentDay] = useState(new Date())
     const [showEdit, setShowEdit] = useState(false)
     const events = useSelector(state => state.calendarEvents.events)
+
     const handleDayClick = (value) => {
         setCurrentDay(value)
     }
@@ -20,12 +21,10 @@ function App() {
     const hasEvents = ({date}) => {
         const validArray = events.filter(obj => {
             if (obj.date === date.toLocaleDateString()) {
-                console.log(obj.date, '===', date.toLocaleDateString())
                 return 1
             }
 
         })
-        console.log(validArray)
         return validArray.length ? <p className="text-3xl text-green-600 relative top-[-10px]">*</p> : null
     }
 

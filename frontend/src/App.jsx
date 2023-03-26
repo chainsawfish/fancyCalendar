@@ -32,7 +32,7 @@ function App() {
     return (
         <>
             <Logo />
-            <div className="flex flex-row gap-8 mt-10 ml-10">
+            <div className="flex flex-row justify-center gap-8 mt-10 ml-10 ">
                 <div>
                 <Calendar onChange={setDate} value={date} onClickDay={handleDayClick} tileContent={hasEvents}/>
                     <div className="flex flex-col items-center justify-center">

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {addEvent, setEditEvent} from "../store/reducers/eventSlice.js";
+import {addEvent, setEditEvent} from "../store/slices/eventSlice.js";
 
 const EditForm = ({currentDay}) => {
 

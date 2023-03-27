@@ -32,13 +32,13 @@ function App() {
     return (
         <>
             <Logo/>
-            <div className="flex flex-row justify-center gap-8 mt-10 ml-10 ">
+            <div className="flex flex-col justify-center items-center gap-8 mt-6 mh-2 md:flex-row md:items-start">
                 <div>
                     <Calendar className='shadow-md' onChange={setDate} value={date} onClickDay={handleDayClick}
                               tileContent={hasEvents}/>
-                    <div className="flex flex-col items-center justify-center">
+                    <div className="flex flex-col justify-center">
                         <div onClick={handleEdit}
-                             className='btn w-[350px] mt-2 text-md'>
+                             className='btn max-w-[350px] mt-2 text-md'>
                             Добавить событие
                         </div>
                         {showEdit && currentDay &&
@@ -46,7 +46,7 @@ function App() {
                         }
                     </div>
                 </div>
-                {currentDay && <EventsList currentDay={date}/>}
+                <div>{currentDay && <EventsList currentDay={date}/>}</div>
             </div>
 
         </>

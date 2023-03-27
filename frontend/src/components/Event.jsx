@@ -25,7 +25,7 @@ const Event = ({today}) => {
 
     return (
         <div onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}
-             className="border-2 rounded-md shadow-md border-gray-400 p-2 mt-2 w-[380px] ">
+             className="border-2 rounded-md shadow-md border-gray-400 p-2 mt-2 max-w-[350px] ">
             <div className="flex flex-row justify-between items-baseline">
                 <div
                     className="text-xl text-sky-600 underline w-[300px] pl-4 text-center uppercase">{today?.eventName}</div>

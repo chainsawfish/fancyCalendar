@@ -9,8 +9,8 @@ const EventsList = ({currentDay}) => {
         console.log(events)
     }, [events])
     return (
-        <div className='w-[300px] break-all'>
-            <h1 className="text-center text-xl">Список дел на {currentDay.toLocaleString('ru-RU', {
+        <div className='min-w-[200px] break-words border-2 p-2 border-dashed rounded-xl border-gray-400'>
+            <h1 className="text-xl">Список дел на {currentDay.toLocaleString('ru-RU', {
                 day: 'numeric',
                 month: 'long',
                 year: 'numeric'

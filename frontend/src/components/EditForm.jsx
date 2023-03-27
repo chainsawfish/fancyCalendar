@@ -120,7 +120,7 @@ const EditForm = ({currentDay}) => {
             />}
             {error && <div className="text-red-600 text-sm">Ошибка ввода</div>}
             <div className='flex gap-4 m-auto'>
-                <button className="btn btn-success" onClick={handleSaveClick}>Сохранить</button>
+                <button disabled={event?.eventName===''} className="btn btn-success" onClick={handleSaveClick}>Сохранить</button>
                 <button className="btn btn-error" onClick={handleCancelClick}>Отмена</button>
             </div>
         </form>

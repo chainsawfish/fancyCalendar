@@ -9,7 +9,7 @@ const EventsList = ({currentDay}) => {
         console.log(events)
     }, [events])
     return (
-        <div className='min-w-[300px]'>
+        <div className='w-[300px] break-all'>
             <h1 className="text-center text-xl">Список дел на {currentDay.toLocaleString('ru-RU', {
                 day: 'numeric',
                 month: 'long',
